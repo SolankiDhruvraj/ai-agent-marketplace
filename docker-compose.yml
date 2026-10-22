@@ -9,7 +9,7 @@ version: "3.9"
 
 services:
 
-  # ── MongoDB (free, open source) ─────────────────────────────────────────────
+  # ── MongoDB ─────────────────────────────────────────────
   mongodb:
     image: mongo:7
     container_name: forgeflow-mongo
@@ -26,7 +26,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # ── Mongo Express — free MongoDB GUI in the browser ─────────────────────────
+  # ── Mongo Express ─────────────────────────
   mongo-express:
     image: mongo-express:1
     container_name: forgeflow-mongo-ui
@@ -40,7 +40,7 @@ services:
       mongodb:
         condition: service_healthy
 
-  # ── Prometheus — free metrics scraper ───────────────────────────────────────
+  # ── Prometheus  ───────────────────────────────────────
   prometheus:
     image: prom/prometheus:latest
     container_name: forgeflow-prometheus
@@ -54,7 +54,7 @@ services:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.retention.time=15d"
 
-  # ── Grafana — free dashboards ────────────────────────────────────────────────
+  # ── Grafana ────────────────────────────────────────────────
   grafana:
     image: grafana/grafana-oss:latest
     container_name: forgeflow-grafana
