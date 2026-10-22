@@ -1,0 +1,21 @@
+{
+  "mappings": {
+    "dynamic": true,
+    "fields": {
+      "embedding": {
+        "type": "knnVector",
+        "dimensions": 1024,
+        "similarity": "cosine"
+      },
+      "organizationId": {
+        "type": "token"
+      },
+      "repository": {
+        "type": "token"
+      },
+      "agentSlug": {
+        "type": "token"
+      }
+    }
+  }
+}

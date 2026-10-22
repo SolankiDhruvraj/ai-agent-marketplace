@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: forgeflow-api
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/forgeflow}
+      auto-index-creation: true
+  security:
+    # Disable default Basic Auth login form for API
+    user:
+      name: unused
+
+server:
+  port: 8080
+  error:
+    include-message: never
+    include-stacktrace: never
+
+# Prometheus metrics endpoint (free — scraped by local Grafana)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+forgeflow:
+  jwt:
+    secret: ${JWT_SECRET:change-me-in-production-use-env-var-min-32-chars}
+    expiration-ms: 86400000   # 24 h
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

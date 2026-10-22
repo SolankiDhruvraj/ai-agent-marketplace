@@ -1,0 +1,49 @@
+# ── Environment ────────────────────────────────────────────────────────────
+.env
+.env*
+!.env.example
+*.pem
+*.key
+*.p8
+*.cert
+*.crt
+
+# ── Java / Maven ───────────────────────────────────────────────────────────
+backend/target/
+*.class
+*.jar
+*.war
+.flattened-pom.xml
+
+# ── Node / Vite / Dist ────────────────────────────────────────────────────
+node_modules/
+*/node_modules/
+dist/
+*/dist/
+frontend/.vite/
+.eslintcache
+
+# ── VS Code ──────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.suo
+*.user
+.project
+.classpath
+.settings/
+
+# ── macOS ─────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ── Logs & Scratch ────────────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+scratch/
